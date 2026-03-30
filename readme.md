@@ -37,3 +37,10 @@ modified (англ. «изменённый»)
 Вот что ещё важно учесть:
 Для файлов в состояниях staged и modified обычно не указывается, что они также tracked, потому что это состояние подразумевается.
 Команда git add добавляет в staging area только текущее содержимое файла. Если вы, например, сделаете git add file.txt, а затем измените file.txt, то новое содержимое файла не будет находиться в staging. Git сообщит об этом с помощью статуса modified: файл изменён относительно той версии, которая уже в staging. Чтобы добавить в staging последнюю версию, нужно выполнить git add file.txt ещё раз.
+
+```mermaid
+graph LR;
+  untracked -- "git add" --> staged;
+  staged    -- "git commit -m"     --> tracked/comitted;
+  modified -- "git add" -- staged;
+```
